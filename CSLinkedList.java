@@ -157,4 +157,19 @@ public class CSLinkedList<E> extends AbstractList<E> {
       if (expectedMod != modCount) throw new ConcurrentModificationException();
     }
   }
+
+  //Adding addIfAbsent(E item) method to CSLinkedList
+
+  public boolean addIfAbsent(E item) {
+    for(int i = 0; i < size(); i++){
+        if(nodeAt(i).data == item){
+            return false;
+        }
+
+    }
+    add(item);
+    return true;
+  }
+
+
 }

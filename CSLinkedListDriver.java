@@ -12,8 +12,8 @@ public class CSLinkedListDriver {
         // then implement that method below.
 
         runLL1_Playlist();
-        //runLL2_TodoList();
-        //runLL3_CourseWaitlist();
+        runLL2_TodoList();
+        runLL3_CourseWaitlist();
         //runLL4_TextEditorLines();
         //runLL5_RecentlyContacted();
         //runLL6_ShoppingListAddAfter();
@@ -27,9 +27,9 @@ public class CSLinkedListDriver {
     private static void runLL1_Playlist() {
         // TODO: Implement task LL1 here.
         // See the assignment handout for the scenario description.
+        System.out.println("----------LL1----------");
         CSLinkedList<String> playlist = new CSLinkedList<>();
-        
-        System.out.println("-----List of songs in playlist-----");
+        System.out.print("List of songs in playlist: ");
         playlist.add("Mine");
         playlist.add("What 2 do");
         playlist.add("Sweet Insomnia");
@@ -46,20 +46,62 @@ public class CSLinkedListDriver {
         //Removing a song from the middle
         System.out.print("Removing a song from the middle: ");
         playlist.remove(playlist.size() /2);
-        System.out.println(playlist);
-        
-        
+        System.out.println(playlist + "\n");
+
+
     }
 
     // LL2 – To-Do List with Priorities
     private static void runLL2_TodoList() {
         // TODO: Implement task LL2 here.
+        System.out.println("----------LL2----------");
+        CSLinkedList<String> todo = new CSLinkedList<>();
+
+        //Adding regular tasks to the list
+        System.out.print("Adding regular tasks: ");
+        todo.add("Cleam living room");
+        todo.add("Finish homework assignments");
+        todo.add("Return library books");
+        System.out.println(todo);
+
+        //Adding urgent tasks to the list at index 0
+        System.out.print("Adding urgent tasks: ");
+        todo.add(0,"Pay the bills");
+        todo.add(0,"Fix the car");
+        System.out.println(todo);
+
+        //Removing completed tasks by index
+        System.out.print("Removing completed tasks:");
+
+        int numTasksCompleted = 3;
+        int count = 0;
+        while(count < numTasksCompleted) {
+            todo.remove(0);
+            count++;
+        }
+        System.out.println(todo + "\n");
+
+
+
+
     }
 
     // LL3 – Course Waitlist (No Duplicates)
     private static void runLL3_CourseWaitlist() {
         // TODO: Implement task LL3 here.
-        // You may add a helper method addIfAbsent(E item) to CSLinkedList if needed.
+        System.out.println("----------LL3----------");
+
+        CSLinkedList<String> waitlist = new CSLinkedList<>();
+
+        System.out.print("Names of students on waitlist: ");
+        String[] students = {"Ruby", "Michelle", "Ruby", "Mason", "Lyric", "Brian", "Lyric"};
+        for(String name : students){
+            waitlist.addIfAbsent(name);
+        }
+        System.out.println(waitlist);
+
+
+
     }
 
     // LL4 – Text Editor Line Manager
