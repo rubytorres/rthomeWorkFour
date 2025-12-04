@@ -1,7 +1,4 @@
-import java.util.AbstractList;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.ConcurrentModificationException;
+import java.util.*;
 
 public class CSLinkedList<E> extends AbstractList<E> {
 
@@ -158,7 +155,7 @@ public class CSLinkedList<E> extends AbstractList<E> {
     }
   }
 
-  //Adding addIfAbsent(E item) method to CSLinkedList
+  //------------All Helper Methods Implemented--------------
 
   public boolean addIfAbsent(E item) {
     for(int i = 0; i < size(); i++){
@@ -170,6 +167,68 @@ public class CSLinkedList<E> extends AbstractList<E> {
     add(item);
     return true;
   }
+  //
+  public void moveToFront(E item){
+      int i = indexOf(item);
+
+      if(i == -1){ //If item in not in the list, the list does not change
+          return;
+      }
+      if(i == 0){ //If item is at the front already, the list does not change
+          return;
+      }
+      E removedItem = remove(i); //Remove item from the list and then add it to the front
+      add(0, item);
+
+  }
+  public boolean addAfter(E target, E newItem) {
+      int i = indexOf(target);
+      if(i == -1){
+          return false;
+      }
+      add(i + 1,  newItem);
+      return true;
+
+  }
+
+  public void addInOrder(E item, Comparator<E> cmp) {
+
+      //Adding the first item in list
+      Node<E> n = new Node<>(item,  null);
+      if(head == null || cmp.compare(item, head.data) <= 0){
+          n.next = head;
+          size++;
+          modCount++;
+          return;
+      }
+      Node<E> curr = head;
+      while(curr.next != null && cmp.compare(item, curr.next.data) < 0 ){
+          curr = curr.next;
+
+      }
+      n.next = curr.next;
+      curr.next = n;
+      size++;
+      modCount++;
+
+  }
+  public boolean removeFirstOccurrence(E item) {
+      int i = indexOf(item); //IndexOf() method will give us the first occurrence of an item in the list which helps when there are duplicates
+      if(i == -1){
+          return false;
+      }
+      remove(i);
+      return true;
+
+  }
+
+  /*public CSLinkedList<E> copy(){
+
+
+  }*/
+
+
+
 
 
 }
