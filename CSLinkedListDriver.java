@@ -12,14 +12,14 @@ public class CSLinkedListDriver {
         // then implement that method below.
 
         runLL1_Playlist();
-        //runLL2_TodoList();
-        //runLL3_CourseWaitlist();
-        //runLL4_TextEditorLines();
-        //runLL5_RecentlyContacted();
-        //runLL6_ShoppingListAddAfter();
-        //runLL7_BusRouteStops();
+        runLL2_TodoList();
+        runLL3_CourseWaitlist();
+        runLL4_TextEditorLines();
+        runLL5_RecentlyContacted();
+        runLL6_ShoppingListAddAfter();
+        runLL7_BusRouteStops();
         //runLL8_EventScheduleSorted();
-        //runLL9_BugTrackerRemoveById();
+        runLL9_BugTrackerRemoveById();
         //runLL10_PlaylistShuffleCopy();
     }
 
