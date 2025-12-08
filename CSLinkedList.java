@@ -177,7 +177,7 @@ public class CSLinkedList<E> extends AbstractList<E> {
       if(i == 0){ //If item is at the front already, the list does not change
           return;
       }
-      E removedItem = remove(i); //Remove item from the list and then add it to the front
+      remove(i); //Remove item from the list and then add it to the front
       add(0, item);
 
   }
