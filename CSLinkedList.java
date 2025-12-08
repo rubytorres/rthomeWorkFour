@@ -167,7 +167,7 @@ public class CSLinkedList<E> extends AbstractList<E> {
     add(item); //If we do not find the item, we add item to the list and return true
     return true;
   }
-  //
+
   public void moveToFront(E item){
       int i = indexOf(item);
 
@@ -181,6 +181,7 @@ public class CSLinkedList<E> extends AbstractList<E> {
       add(0, item);
 
   }
+
   public boolean addAfter(E target, E newItem) {
       int i = indexOf(target);
       if(i == -1){ //If target is not in list, do not change the list
@@ -218,6 +219,7 @@ public class CSLinkedList<E> extends AbstractList<E> {
       modCount++;
 
   }
+
   public boolean removeFirstOccurrence(E item) {
       //IndexOf() method will give us the index of item's first occurrence
       int i = indexOf(item);
@@ -239,9 +241,4 @@ public class CSLinkedList<E> extends AbstractList<E> {
     return copy; //the copy list is returned
 
   }
-
-
-
-
-
 }

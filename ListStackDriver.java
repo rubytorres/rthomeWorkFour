@@ -9,7 +9,7 @@ public class ListStackDriver {
         // TODO: Uncomment EXACTLY ONE of the following lines,
         // then implement that method below.
 
-        runS1_BrowserBackButton();
+        //runS1_BrowserBackButton();
         //runS2_TextEditorUndo();
         //runS3_BalancedParentheses();
         //runS4_ReverseWord();
