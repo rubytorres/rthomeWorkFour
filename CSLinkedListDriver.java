@@ -55,18 +55,18 @@ public class CSLinkedListDriver {
         System.out.println("----------LL2----------");
         CSLinkedList<String> todo = new CSLinkedList<>();
 
-        //Adding regular tasks to the list
+        //Adds regular tasks to the list
         todo.add("Clean living room");
         todo.add("Finish homework assignments");
         todo.add("Return library books");
         System.out.println(todo);
 
-        //Adding urgent tasks to the list at index 0
+        //Adds urgent tasks to the list at index 0
         todo.add("Pay the bills");
         todo.add(0,"Fix the car");
         System.out.println(todo);
 
-        //Removing completed tasks by index
+        //Removes completed tasks by index
         todo.remove(0);
         todo.remove(0);
         System.out.println(todo);
@@ -104,7 +104,7 @@ public class CSLinkedListDriver {
         waitlist.add("Olivia");
         System.out.println(waitlist);
 
-        //Adding new student names on the waitlist
+        //Adds new student names on the waitlist
         System.out.print("Updated list of students on the waitlist: ");
         waitlist.addIfAbsent("Mason");
         waitlist.addIfAbsent("Ruby");
@@ -127,7 +127,7 @@ public class CSLinkedListDriver {
         lines.add("}");
         System.out.println(lines);
 
-        //Insert a new line in the middle
+        //Inserts a new line in the middle
         System.out.println("After inserting a new line in the middle:");
         lines.add(lines.size() / 2, "CSLinkedList<String> lines = new CSLinkedList<>();");
         //for loop to print each line and their line number
@@ -135,7 +135,7 @@ public class CSLinkedListDriver {
             System.out.println(lines.indexOf(line) + 1 + " -> " + line);
         }
 
-        //Remove a line
+        //Removes a line
         System.out.println("After removing a line:");
         lines.remove(1);
         //for loop to print each line and their line number
@@ -207,11 +207,11 @@ public class CSLinkedListDriver {
         busStops.add("Shadow Pines");
         System.out.println(busStops);
 
-        //Add a stop in the middle of list
+        //Adds a stop in the middle of list
         busStops.add(busStops.size() / 2, "Golden Valley");
         System.out.println(busStops);
 
-        //Remove a stop that is closed
+        //Removes a stop that is closed
         busStops.remove("Shadow Pines");
         System.out.println(busStops);
 
