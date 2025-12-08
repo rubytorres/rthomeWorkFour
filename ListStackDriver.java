@@ -9,7 +9,7 @@ public class ListStackDriver {
         // TODO: Uncomment EXACTLY ONE of the following lines,
         // then implement that method below.
 
-        //runS1_BrowserBackButton();
+        runS1_BrowserBackButton();
         //runS2_TextEditorUndo();
         //runS3_BalancedParentheses();
         //runS4_ReverseWord();
@@ -23,6 +23,14 @@ public class ListStackDriver {
     // S1 – Browser Back Button
     private static void runS1_BrowserBackButton() {
         // TODO: Implement task S1 here.
+        ListStack<String> pageURLs = new ListStack<>();
+
+        pageURLs.push("https://www.google.com");
+        pageURLs.push("https://www.youtube.com/");
+        pageURLs.push("https://www.typingclub.com/");
+        pageURLs.push("https://www.google.com/maps");
+        System.out.println(pageURLs);
+
     }
 
     // S2 – Undo in a Text Editor

@@ -159,12 +159,12 @@ public class CSLinkedList<E> extends AbstractList<E> {
 
   public boolean addIfAbsent(E item) {
     for(int i = 0; i < size(); i++){
-        if(nodeAt(i).data == item){
+        if(nodeAt(i).data == item){    //If we find the item index in list, return false
             return false;
         }
 
     }
-    add(item);
+    add(item); //If we do not find the item, we add item to the list and return true
     return true;
   }
   //
@@ -183,37 +183,44 @@ public class CSLinkedList<E> extends AbstractList<E> {
   }
   public boolean addAfter(E target, E newItem) {
       int i = indexOf(target);
-      if(i == -1){
+      if(i == -1){ //If target is not in list, do not change the list
           return false;
       }
-      add(i + 1,  newItem);
+      add(i + 1,  newItem); //If target is in list, add newItem after target's index
       return true;
 
   }
 
   public void addInOrder(E item, Comparator<E> cmp) {
 
-      //Adding the first item in list
-      Node<E> n = new Node<>(item,  null);
-      if(head == null || cmp.compare(item, head.data) <= 0){
-          n.next = head;
-          size++;
-          modCount++;
-          return;
-      }
-      Node<E> curr = head;
-      while(curr.next != null && cmp.compare(item, curr.next.data) < 0 ){
+      Node<E> prev = head;
+      Node<E> curr = head.next;
+      tail = head;
+
+      //looping through the list as long as item is greater than the current node value
+      while(curr != null){
+          if(curr.data == null || cmp.compare(item, curr.data) <= 0 ){
+              break;
+          }
+          prev = curr;  //updating the pointer values
           curr = curr.next;
 
       }
-      n.next = curr.next;
-      curr.next = n;
+
+      Node<E> newNode = new Node<>(item, curr);
+      prev.next = newNode; //Adds newNode after the other node
+
+      if(curr == null){
+          tail = newNode;
+
+      }
       size++;
       modCount++;
 
   }
   public boolean removeFirstOccurrence(E item) {
-      int i = indexOf(item); //IndexOf() method will give us the first occurrence of an item in the list which helps when there are duplicates
+      //IndexOf() method will give us the index of item's first occurrence
+      int i = indexOf(item);
       if(i == -1){
           return false;
       }
@@ -222,10 +229,16 @@ public class CSLinkedList<E> extends AbstractList<E> {
 
   }
 
-  /*public CSLinkedList<E> copy(){
+  public CSLinkedList<E> copy(){
+    CSLinkedList<E> copy = new CSLinkedList<>();
+    Node<E> curr = head.next;
+    while(curr != null){   //while curr is not null, elements from the original list will get added to the copy list
+        copy.add(curr.data);
+        curr = curr.next;
+    }
+    return copy; //the copy list is returned
 
-
-  }*/
+  }
 
 
 

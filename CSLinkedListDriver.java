@@ -18,9 +18,9 @@ public class CSLinkedListDriver {
         runLL5_RecentlyContacted();
         runLL6_ShoppingListAddAfter();
         runLL7_BusRouteStops();
-        //runLL8_EventScheduleSorted();
+        runLL8_EventScheduleSorted();
         runLL9_BugTrackerRemoveById();
-        //runLL10_PlaylistShuffleCopy();
+        runLL10_PlaylistShuffleCopy();
     }
 
     // LL1 – Music Playlist Manager
@@ -225,22 +225,21 @@ public class CSLinkedListDriver {
         CSLinkedList<String> events = new CSLinkedList<>();
         Comparator<String> timeCompare = new Comparator<String>() {
             @Override
-            public int compare(String o1, String o2) {
-                return o1.compareTo(o2);
+            public int compare(String o1, String o2) { //Takes the time (ex: 09:00) of two events and compares them
+                String a = o1.substring(0, 5);
+                String b = o2.substring(0, 5);
+                return a.compareTo(b);
             }
         };
 
         //list of events sorted in order using the addInOrder() method
-        events.addInOrder("9:00 Breakfast", timeCompare );
+        events.addInOrder("09:00 Breakfast", timeCompare);
         events.addInOrder("13:00 Math 262", timeCompare);
         events.addInOrder("12:00 Lunch", timeCompare);
-        events.addInOrder("19:00 Comp 282",  timeCompare);
-        events.addInOrder("11:30 Philosophy 230",  timeCompare);
-        events.addInOrder("18:00 Dinner",  timeCompare);
-        System.out.println(events);
-
-
-
+        events.addInOrder("19:00 Comp 282", timeCompare);
+        events.addInOrder("11:30 Philosophy 230", timeCompare);
+        events.addInOrder("18:00 Dinner", timeCompare);
+        System.out.println("Event schedule sorted: " + events);
     }
 
     // LL9 – Bug Tracker List (Remove by ID)
@@ -258,12 +257,12 @@ public class CSLinkedListDriver {
         bugtracker.add("7304819");
         bugtracker.add("1586093");
         bugtracker.add("1586093");
-        System.out.println(bugtracker);
+        System.out.println("ID list: " + bugtracker);
 
         //Remove the first occurrence of different IDs
         bugtracker.removeFirstOccurrence("1586093");
         bugtracker.removeFirstOccurrence("1257693");
-        System.out.println(bugtracker);
+        System.out.println("Removing IDS: " + bugtracker);
 
     }
 
@@ -273,5 +272,23 @@ public class CSLinkedListDriver {
         // You may add a helper method copy() to CSLinkedList if needed.
         System.out.println("----------LL10----------");
         CSLinkedList<String> playlist = new CSLinkedList<>();
+
+        //Original playlist
+        playlist.add("Dive");
+        playlist.add("Flower");
+        playlist.add("Un Village");
+        playlist.add("Paper Hearts");
+        System.out.println("playlist: " + playlist);
+
+        //Copy of playlist
+        CSLinkedList<String> playlistCopy = playlist.copy();
+        System.out.println("Copy of playlist: " + playlistCopy);
+
+        //Modifying the copy of playlist
+        playlistCopy.add("Halo");
+        playlistCopy.remove("Flower");
+        System.out.println("Modifying copy of playlist: " + playlistCopy);
+
+
     }
 }
