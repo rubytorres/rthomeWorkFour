@@ -3,7 +3,6 @@
 // DO NOT change the class name or the signature of main().
 // Implement ONLY the method for your assigned task (e.g., runS4_ReverseWord).
 
-import java.util.Scanner;
 
 public class ListStackDriver {
 
@@ -230,13 +229,13 @@ public class ListStackDriver {
         // TODO: Implement task S9 here.
         ListStack<String> plates = new ListStack<>();
         String[] tests = {"p1", "p2", "p3", "p4", "p5", "p6", "p7"};
-        int capacty = 5;
+        int capacity = 5;
 
         for(String test: tests) {
-            if(plates.size() < capacty) {
+            if(plates.size() < capacity) {
                 plates.push(test);
             }
-            else if(plates.size() == capacty) {
+            else if(plates.size() == capacity) {
                 System.out.println("Cannot add more plates!");
                 System.out.println("Last plate added was: " + plates.peek());
                 break;
