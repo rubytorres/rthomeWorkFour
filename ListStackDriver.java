@@ -19,7 +19,7 @@ public class ListStackDriver {
         runS6_CalculatorHistory();
         runS7_PalindromeChecker();
         runS8_FunctionCallStack();
-        //runS9_StackOfPlates();
+        runS9_StackOfPlates();
     }
 
     // S1 – Browser Back Button
@@ -79,7 +79,7 @@ public class ListStackDriver {
         String test = "(5*8)+3)";
         System.out.println(test);
         boolean balanced = true;
-        String isBalanced = "";
+        String isBalanced;
 
         for(char c: test.toCharArray()) {
             if(c == '(') {
@@ -228,11 +228,19 @@ public class ListStackDriver {
     private static void runS9_StackOfPlates() {
         System.out.println("----------S9----------");
         // TODO: Implement task S9 here.
-        ListStack<Integer> plates = new ListStack<>();
+        ListStack<String> plates = new ListStack<>();
+        String[] tests = {"p1", "p2", "p3", "p4", "p5", "p6", "p7"};
         int capacty = 5;
-        Scanner scanner = new Scanner(System.in);
 
-
-
+        for(String test: tests) {
+            if(plates.size() < capacty) {
+                plates.push(test);
+            }
+            else if(plates.size() == capacty) {
+                System.out.println("Cannot add more plates!");
+                System.out.println("Last plate added was: " + plates.peek());
+                break;
+            }
+        }
     }
 }
